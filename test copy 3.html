@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Horizontal Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        ha-card {
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Conteneur principal */
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px; /* Ajout de marge de 10px entre le left et le right */
+            width: 100%;
+            overflow: hidden; /* Empêche le contenu de dépasser */
+        }
+
+        /* Section gauche (icône et shape) */
+        .left {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0; /* L'icône ne rétrécit pas */
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+
+        .shape {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: #4CAF50;
+            opacity: 0.2;
+        }
+
+        .icon {
+            font-size: 24px;
+            color: #4CAF50;
+            z-index: 1;
+        }
+
+        /* Section droite (nom et pourcentage) */
+        .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 1; /* Prend toute la place restante */
+            overflow: hidden; /* Empêche le débordement */
+        }
+
+        .name {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+            white-space: nowrap; /* Empêche le retour à la ligne */
+            overflow: hidden; /* Cache le contenu débordant */
+            text-overflow: ellipsis; /* Ajoute des "..." si le texte est trop long */
+            max-width: 100%; /* Limite la largeur au conteneur parent */
+        }
+
+        .secondary_info {
+            display: flex; /* Flex container */
+            align-items: center; /* Centre verticalement les éléments */
+            gap: 10px; /* Ajout d'un espace fixe entre le pourcentage et la barre */
+        }
+
+        .percentage {
+            font-size: 0.9em;
+            color: #555;
+            min-width: 40px; /* Largeur minimale pour aligner avec la barre */
+            text-align: left; /* Aligner le texte du pourcentage à droite */
+        }
+
+        /* Barre de progression */
+        .progress-bar {
+            flex-grow: 1; /* La barre de progression occupe le reste de l'espace */
+            height: 8px;
+            background-color: blue;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            width: 75%; /* Exemple : 75% de progression */
+            background-color: #4CAF50;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <ha-card>
+        <!-- Conteneur principal -->
+        <div class="container">
+            <!-- Section gauche avec l'icône -->
+            <div class="left">
+                <div class="shape"></div>
+                <ha-icon class="icon">🔋</ha-icon>
+            </div>
+
+            <!-- Section droite avec le texte -->
+            <div class="right">
+                <div class="name">Nom de l'entité jzhkjev zjehk zeh zkjzevkz ekzjh  zvk zkjehvkz hevkzhe khzekdch</div>
+                <div class="secondary_info">
+                    <div class="percentage">100%</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner"></div>
+                    </div>         
+                </div>   
+            </div>
+        </div>
+    </ha-card>
+</body>
+</html>
